@@ -24,7 +24,16 @@ public class PrimaryController {
         if (jogo.getComputador().parou()){
             jogo.distribuiCartaParaJogador(jogo.getJogador());
         }
+        if (jogo.getJogador().parou()){
+            while (!jogo.getComputador().parou()){
+                jogo.distribuiCartaParaJogador(jogo.getComputador());
+            }
+        }
         atualizar();
+
+        if (jogo.acabou()){
+            resultado.setText(jogo.resultado());
+        }
     }
 
     public void atualizar(){
@@ -58,6 +67,7 @@ public class PrimaryController {
 
 
      private ImageView imagemCarta(Carta carta) {
+        System.out.println("Carrega carta: " + carta.imagePath());
         return new ImageView(App.class.getResource(carta.imagePath()).toString());
      }
 

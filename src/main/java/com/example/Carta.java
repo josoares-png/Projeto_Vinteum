@@ -11,7 +11,18 @@ public class Carta {
     }
 
     public String imagePath(){
-        return "classic-cards/" + numero + this.naipe + ".png";
+        String numeroCarta = String.valueOf(numero);
+
+        if (numero == 1){
+            numeroCarta = "Ace";
+        } else if (numero == 11) {
+            numeroCarta = "Jack";
+        } else if (numero == 12) {
+            numeroCarta = "Queen";
+        } else if (numero == 13) {
+            numeroCarta = "King";
+        }
+        return "classic-cards/" + numeroCarta + this.naipe + ".png";
     }
 
     public int getNumero() {
