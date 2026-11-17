@@ -18,7 +18,13 @@ public class PrimaryController {
      private Jogo jogo;
 
     public void turno(){
-
+        if (!jogo.getJogador().parou()){
+            jogo.distribuiCartaParaJogador(jogo.getJogador());
+        }
+        if (jogo.getComputador().parou()){
+            jogo.distribuiCartaParaJogador(jogo.getJogador());
+        }
+        atualizar();
     }
 
     public void atualizar(){
