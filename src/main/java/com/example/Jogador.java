@@ -13,6 +13,24 @@ public class Jogador {
         cartas.add(carta);
         if (carta.getNumero() > 10){
             pontos += 10;
+        }else{
+            pontos += carta.getNumero();
         }
+    }
+
+    public void parar() {
+        this.parou = true;
+    }
+
+    public List<Carta> getCartas(){
+        return cartas;
+    }
+
+    public int getPontos(){
+        return pontos;
+    }
+
+    public boolean parou(){
+        return parou;
     }
 }
